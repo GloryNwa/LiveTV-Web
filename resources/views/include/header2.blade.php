@@ -48,7 +48,7 @@
             <nav class="navbar">
                 <ul class="navbar-nav" data-scrollable="true">
                     <li class="nav-item nav-header">Browse Categories</li>
-                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link "><i class="la la-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="{{route('index')}}" class="nav-link "><i class="la la-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a href="{{route('stations')}}" class="nav-link"><i class="la la-tv"></i><span>LiveTV</span></a></li>
                     <li class="nav-item"><a href="{{route('category')}}" class="nav-link"><i class="la la-bullseye"></i><span>Catch-Up</span></a></li>
                     <li class="nav-item"><a href="{{route('profile')}}" class="nav-link"><i class="la la-users"></i><span>Profile</span></a></li>
@@ -58,7 +58,7 @@
 
 
 
-            <div class="sidebar-footer"><a href="{{route('logout')}}" class="btn btn-block btn-danger btn-air btn-bold"><i class="ion-md-log-out"></i> <span>Sign Out</span></a></div>
+            <div class=""><a href="{{route('logout')}}" class="btn btn-block btn-danger btn-air btn-bold"><i class="ion-md-log-out"></i> <span>Sign Out</span></a></div>
         </aside>
         <main id="pageWrapper">
             <header id="header" class="" style="background-color:#253dcb !important">

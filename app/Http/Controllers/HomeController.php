@@ -67,6 +67,6 @@ class HomeController extends Controller
     curl_close($curl);
     $slider = json_decode($response);
     // dd( $slider);exit;
-    return view('index.index', ['sections' => $sections, 'slider' => $slider]);
+    return view('index', ['sections' => $sections, 'slider' => $slider]);
   }
 }

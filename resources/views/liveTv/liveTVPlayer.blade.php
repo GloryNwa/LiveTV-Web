@@ -10,7 +10,7 @@
             <hr>
         </div>
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-xl-8 col-lg-8 col-sm-8">
                 @if(count($response) == 1)
 
 
@@ -36,26 +36,29 @@
 
                 @endif
             </div>
-            <div class="col-sm-2">
 
-                @foreach($category->data as $cat)
-
-
-
-
-
-                <a href="/livetv/web/{{$cat->video_id}}"><img src="{{$cat->banner}}" alt="" class=""> </a>
-                <br><br>
+            <div class="col-xl-2 col-lg-3 col-sm-3">
+                <h4>Recommended</h4>
+                <div style="overflow: scroll;height:500px;" id="scroll">
+                    @foreach($category->data as $cat)
 
 
 
 
-                <p>{{$cat->title}}</p>
+
+                    <a href="/livetv/web/{{$cat->video_id}}"><img src="{{$cat->banner}}" alt="" class=""> </a>
+                    <br><br>
 
 
 
 
-                @endforeach
+                    <p>{{$cat->title}}</p>
+
+
+
+
+                    @endforeach
+                </div>
             </div>
         </div>
 

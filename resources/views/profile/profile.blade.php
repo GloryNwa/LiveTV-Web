@@ -31,11 +31,11 @@
   </div> -->
     <div id="wrapper" data-scrollable="true">
         <aside id="sidebar" class="sidebar-primary">
-            <div class="sidebar-header d-flex align-items-center"><a href="#" class="brand"><img src="/assets/img/logo-icon.png" alt="LiveTV" style="width:100px;height:100px"> </a><button type="button" class="btn p-0 ml-auto" id="hideSidebar"><i class="ion-md-arrow-back h3"></i></button> <button type="button" class="btn toggle-menu" id="toggleSidebar"><span></span> <span></span> <span></span></button></div>
+            <div class="sidebar-header d-flex align-items-center"><a href="#" class="brand"><img src="/assets/img/logo-icon.png" alt="LiveTV"> </a><button type="button" class="btn p-0 ml-auto" id="hideSidebar"><i class="ion-md-arrow-back h3"></i></button> <button type="button" class="btn toggle-menu" id="toggleSidebar"><span></span> <span></span> <span></span></button></div>
             <nav class="navbar">
                 <ul class="navbar-nav" data-scrollable="true">
                     <li class="nav-item nav-header">Browse Categories</li>
-                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link"><i class="la la-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="{{route('index')}}" class="nav-link"><i class="la la-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a href="{{route('stations')}}" class="nav-link"><i class="la la-tv"></i><span>LiveTV</span></a></li>
                     <li class="nav-item"><a href="{{route('category')}}" class="nav-link"><i class="la la-bullseye"></i><span>Catch-Up</span></a></li>
                     <li class="nav-item"><a href="{{route('profile')}}" class="nav-link"><i class="la la-users"></i><span>Profile</span></a></li>
@@ -82,7 +82,8 @@
                     </ul>
                 </div>
             </header>
-            <div class="banner bg-home2"></div>
+            <div class=""></div>
+            <br><br><br><br><br><br>
             <div class="main-container under-banner-content" id="appRoute">
                 <div class="row section">
                     <div class="col-xl-10 mx-auto">

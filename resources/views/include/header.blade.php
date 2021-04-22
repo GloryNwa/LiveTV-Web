@@ -48,7 +48,7 @@
             <nav class="navbar">
                 <ul class="navbar-nav" data-scrollable="true">
                     <li class="nav-item nav-header">Browse Categories</li>
-                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link"><i class="la la-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="{{route('index')}}" class="nav-link"><i class="la la-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a href="{{route('stations')}}" class="nav-link"><i class="la la-tv"></i><span>LiveTV</span></a></li>
                     <li class="nav-item"><a href="{{route('category')}}" class="nav-link"><i class="la la-bullseye"></i><span>Catch-Up</span></a></li>
                     <li class="nav-item"><a href="{{route('profile')}}" class="nav-link"><i class="la la-users"></i><span>Profile</span></a></li>

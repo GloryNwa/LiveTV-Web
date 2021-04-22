@@ -7,7 +7,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="../assets/img/logo-icon.png" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets1/vendor/font-awesome/css/all.min.css">
@@ -24,7 +24,8 @@
 <body>
     <main id="content">
         <div>
-            <div class="bg-img-hero position-fixed top-0 bottom-0 left-0 right-0" style="background-image: url('/assets/img/banner.png');">
+            <div class="bg-img-hero position-fixed top-0 bottom-0 left-0 right-0" style="background-image: url('/assets/img/banner.png'); filter: blur(0px);
+  -webkit-filter: blur(5px);opacity:5">
             </div>
             <div class="container position-relative px-md-5">
                 <div class="space-2 space-md-3 space-xl-2">

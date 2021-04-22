@@ -1,6 +1,6 @@
 <footer id="footer" class="bg-img">
-    <div class="footer-content"><a class="email">Welcome to LiveTV Web<br></a>
-        <p>Enjoy Unlimited Access To All Live Programs with Pastor Chris</p>
+    <div class="footer-content"><a class="email">Download LiveTV App<br></a>
+        <p>From Google play store and Apple App store</p>
         <div class=""><a href="https://play.google.com/store/apps/details?id=com.celivetv.mobile2" class="btn btn-dark btn-air platform-btn" target="_blank"><i class="ion-logo-android"></i>
                 <div class="platform-btn-info"><span class="platform-desc"> App Available on</span> <span class="platform-name">Android</span></div>
             </a>
