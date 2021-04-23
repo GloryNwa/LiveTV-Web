@@ -30,7 +30,7 @@
 </button>
 <div id="settingsWrapper">
     <header style="background-color:#253dcb !important;">
-        <span class="title-bold font-md text-uppercase">Theme Settings</span>
+        <span class="title-bold font-md text-uppercase">Mode</span>
         <a href="javascript:void(0)" class="ml-auto">
             <i class="ion-md-close"></i>
         </a>
@@ -38,7 +38,7 @@
     <div class="theme-settings-body">
         <ul class="custom-list">
             <li class="custom-list--item">
-                <label for="to0">Dark Theme</label>
+                <label for="to0">Dark Mode</label>
                 <div class="custom-control custom-checkbox ml-auto">
                     <input type="checkbox" class="custom-control-input" id="to0">
                     <label class="custom-control-label" for="to0"></label>
