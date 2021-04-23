@@ -67,101 +67,43 @@ class LiveTvController extends Controller
 
   /////////////////////////Recommended//////////////////////////////
 
-  public function liveTVPlayer(Messenger $messenger, $video_id)
+  public function liveTVPlayer(Messenger $messenger, $video_id, $cat_id)
   {
-
-    $token = Session::get('user');
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => "http://apis.livetvmobile.org/api/video/all?per_page=10&page=1",
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => "",
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "GET",
-      CURLOPT_HTTPHEADER => array(
-        "Authorization:$token",
-        "Content-Type: application/x-www-form-urlencoded",
-        "Accept: application/json"
-      ),
-    ));
-    $response = curl_exec($curl);
-    curl_close($curl);
-    $category = json_decode($response);
-
-
-
-
-    /////////////////////////////////////This Method Fetches all category videos  with their unique category_id//////////////////////////////////////////////////////    
 
 
     //////////////////Video Details/////////////////////////////////////////////////////////
     $dataArr = array(
-      'video_id' => $video_id
+      'video_id' => $video_id,
+      'category_id' => $cat_id
 
     );
     $response = $messenger->postApi($dataArr, 'http://apis.livetvmobile.org/api/video/details');
 
-    if ($response->status) {
-      // dd($response)  ;exit;
+    $response2 = $messenger->postApi($dataArr, 'http://apis.livetvmobile.org/api/category/video?per_page=10&page=1');
 
-      return view('liveTv.liveTVPlayer', ['category' =>  $category, 'response' => $response]);
+
+
+    if ($response->status) {
+
+
+
+      return view('liveTv.liveTVPlayer', ['response' => $response, 'related' => $response2]);
     } else {
+
       return view('liveTv.liveTVPlayer', ['response' => []]);
     }
   }
 
 
 
-  //  $dataArr = array(
-  //   'category_id'=>$category_id
-  // );
-
-  // $response = $messenger->postApi($dataArr,'http://apis.livetvmobile.org/api/category/video?per_page=10&page=1');
-  //  dd($response)  ;exit;
-  //  if($response->status){
-  // //  dd($response)  ;exit;
-  // return view('liveTv.liveTVPlayer',['response' => $response]);  
-
-  // }else {
-  // return view('liveTv.liveTVPlayer',['response' =>[]]);
-
-
-
-  // }
-
   ///////////////////////////////Stations method////////////////////////////////////////////////
 
-  public function stations()
+  public function stations(Messenger $messenger)
   {
 
 
-    $stations = Session::get('user');
-    $curl = curl_init();
+    $stations = $messenger->getApi('http://apis.livetvmobile.org/api/view/stations');
 
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => 'http://apis.livetvmobile.org/api/view/stations',
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => '',
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => 'GET',
-      CURLOPT_HTTPHEADER => array(
-        "Authorization: $stations",
-        'Accept: application/json'
-      ),
-    ));
-
-    $response = curl_exec($curl);
-
-    curl_close($curl);
-    $stations = json_decode($response);
-    // dd($stations);
-    // exit;
     return view('station.stations', ['stations' => $stations]);
   }
 
@@ -170,16 +112,19 @@ class LiveTvController extends Controller
   public function view_live(Messenger $messenger, $id)
   {
     $dataArr = array(
-      'unique_id' => $id
+      'id' => $id
     );
 
     $response = $messenger->postApi($dataArr, 'http://apis.livetvmobile.org/api/station/profile');
+    $response2 = $messenger->getApi('http://apis.livetvmobile.org/api/view/stations');
 
     if ($response->status) {
-      // dd($response);
-      exit;
-      return view('liveTv.view_live', ['response' => $response]);
+
+      return view('liveTv.view_live', ['response' => $response, 'related' => $response2]);
     } else {
+
+
+
       return view('liveTv.view_live', ['response' => []]);
     }
   }

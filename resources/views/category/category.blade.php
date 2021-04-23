@@ -17,7 +17,7 @@
 <div class="main-container" id="appRoute">
     <h4> Browse Categories</h4>
     <div class="section row">
-        @if(count($category) > 0)
+        @if(count($category->data) > 0)
         @foreach($category->data as $cat_video)
         <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
             <div class="custom-card">
@@ -28,6 +28,11 @@
         </div>
 
         @endforeach
+
+        @else
+        <div class="col-xl-12 col-lg-12 col-sm-12 alert alert-warning">
+            No video available in this category, check back later!
+        </div>
         @endif
     </div>
 </div>

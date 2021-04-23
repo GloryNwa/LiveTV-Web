@@ -31,7 +31,12 @@
         </div>
 
     </div>
+    @else
+    <div class="col-xl-12 col-lg-12 col-sm-12 alert alert-warning">
+        No available video, check back later!
+    </div>
     @endif
+
 </div>
 
 <div class="row">

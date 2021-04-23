@@ -5,18 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Listen App - Online Music Streaming App Template">
-    <meta name="keywords" content="music template, music app, music web app, responsive music app, music, themeforest, html music app template, css3, html5">
+    <meta name="author" content="Christ Embassy">
+    <meta name="description" content="The LiveTV Mobile is a mobile application that presents you with four satellite television stations: LoveWorld USA, LoveWorld Plus, LoveWorldSAT, and LoveWorld TV live on your mobile device. With this app you have access to all programs aired by these stations. Get the LiveTV Mobile today and enjoy TV on the go!!">
+    <meta name="keywords" content="christ embassy,christ,embassy,internet multimedia,gospel,ror,live tv,christian">
     <title>LiveTV- Web App</title>
-    <link href="../assets/img/logo-icon.png" rel="icon">
-    <link rel="apple-touch-icon" href="../assets/images/logos/touch-icon-iphone.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../assets/images/logos/touch-icon-ipad.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/logos/touch-icon-iphone-retina.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="../assets/images/logos/touch-icon-ipad-retina.png">
-    <link href="../assets/css/vendors.bundle.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/styles.bundle.css" rel="stylesheet" type="text/css">
+    <link href="/assets/img/logo-icon.png" rel="icon">
+    <link rel="apple-touch-icon" href="/assets/images/logos/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/logos/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logos/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/logos/touch-icon-ipad-retina.png">
+    <link href="/assets/css/vendors.bundle.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/styles.bundle.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -47,7 +51,7 @@
 
             <nav class="navbar">
                 <ul class="navbar-nav" data-scrollable="true">
-                    <li class="nav-item nav-header">Browse Categories</li>
+                    <li class="nav-item nav-header">Browse Menu</li>
                     <li class="nav-item"><a href="{{route('index')}}" class="nav-link"><i class="la la-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a href="{{route('stations')}}" class="nav-link"><i class="la la-tv"></i><span>LiveTV</span></a></li>
                     <li class="nav-item"><a href="{{route('category')}}" class="nav-link"><i class="la la-bullseye"></i><span>Catch-Up</span></a></li>
@@ -58,7 +62,7 @@
 
 
 
-            <div class="sidebar-footer"><a href="{{route('logout')}}" class="btn btn-block btn-danger btn-air btn-bold"><i class="ion-md-log-out"></i> <span>Sign Out</span></a></div>
+            <div class="sidebar-footer"><a href="{{route('logout')}}" class="btn btn-block btn-danger btn-air btn-bold"><i class="ion-md-log-out"></i> <span> Sign Out</span></a></div>
 
         </aside>
         <main id="pageWrapper">
@@ -81,16 +85,17 @@
                         </div>
                     </form>
                     <ul class="header-options d-flex align-items-center">
-                        <!-- <li><a href="javascript:void(0);" data-toggle="modal" data-target="#lang" class="language"><span>Language</span> <img src="../assets/images/svg/translate.svg" alt=""></a></li> -->
-                        <li class="dropdown fade-in"><a href="#" class="d-flex align-items-center py-2" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="avatar avatar-sm avatar-circle"><img src="../assets/img/logo-icon.png" alt="user"></div><span class="pl-2"></span>
+                        <!-- <li><a href="javascript:void(0);" data-toggle="modal" data-target="#lang" class="language"><span>Language</span> <img src="/assets/images/svg/translate.svg" alt=""></a></li> -->
+                        <li class="dropdown fade-in"><a href="#" class="d-flex align-items-center py-2" role="button" id="userMenu">
+                                <div class="avatar avatar-sm avatar-circle"><img src="/assets/img/logo-icon.png" alt="user"></div><span class="pl-2"></span>&nbsp;&nbsp;
+                                Welcome, {{Session::get('name')}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu"><a class="dropdown-item" href="{{route('profile')}}"><i class="ion-md-contact"></i> <span>Profile</span></a>
 
                                 <!-- <a class="dropdown-item" href="plan.html"><i class="ion-md-radio-button-off"></i> <span>Your Plan</span></a> <a class="dropdown-item" href="settings.html"><i class="ion-md-settings"></i> <span>Settings</span></a> -->
 
                                 <div class="dropdown-divider"></div>
-                                <div class="px-4 py-2"><a href="{{route('logout')}}" class="btn btn-sm btn-air btn-pill btn-danger"><i class="ion-md-log-out"></i>Logout</a></div>
+                                <div class="px-4 py-2"><a href="{{route('logout')}}" class="btn btn-sm btn-air btn-pill btn-danger"><i class="ion-md-log-out"></i> Logout</a></div>
                             </div>
                         </li>
                     </ul>

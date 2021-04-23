@@ -19,7 +19,7 @@ class HomeController extends Controller
     $token = Session::get('user');
     $curl = curl_init();
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "http://apis.livetvmobile.org/api/section/view",
+      CURLOPT_URL => "http://apis.livetvmobile.org/api/section/view2",
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,

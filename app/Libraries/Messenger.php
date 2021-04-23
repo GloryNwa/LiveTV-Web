@@ -14,12 +14,12 @@ class Messenger
 {
     //
 
-    public function postApi($dataArr,$endpoint)
+    public function postApi($dataArr, $endpoint)
     {
-    
+
         if (Session::get('user')) {
-           $token = Session::get('user');
-        }else{
+            $token = Session::get('user');
+        } else {
             $token = "";
         }
 
@@ -38,31 +38,27 @@ class Messenger
 
         try {
             //  echo "I dgot here";exit;
-            $response = $client->post(env('API_HOST').$endpoint, [
+            $response = $client->post(env('API_HOST') . $endpoint, [
                 'form_params' => $dataArr,
             ]);
 
             return json_decode($response->getBody(true)->getContents());
-
-
-        }catch (ClientException $exception) {
+        } catch (ClientException $exception) {
 
 
             $response = $exception->getResponse()->getBody(true)->getContents();
             $res = json_decode($response);
 
-            if(isset($res->message)){
-                if($res->message == "Unauthenticated."){
+            if (isset($res->message)) {
+                if ($res->message == "Unauthenticated.") {
 
-                   // session_destroy();
+                    // session_destroy();
                     Session::flush();
-                    return Redirect::to("/login")->with("message","You need to login to continue")->with("type","danger");
-
+                    return Redirect::to("/login")->with("message", "You need to login to continue")->with("type", "danger");
                 }
-
             }
 
-//            dd($res);
+            //            dd($res);
             return $res;
 
             /* return Redirect::route("showAddBank")
@@ -77,11 +73,12 @@ class Messenger
     public function getApi($endpoint)
     {
 
-        if (Session::get('user')[0]["token"]) {
-            $token = Session::get('user')[0]["token"];
-        }else{
+        if (Session::get('user')) {
+            $token = Session::get('user');
+        } else {
             $token = "";
         }
+
 
         $headers = [
             'Authorization' => $token,
@@ -96,35 +93,29 @@ class Messenger
 
         //dd(env('API_HOST').$endpoint);
         try {
-             // echo "I dgot here";exit;
-            $response = $client->get(env('API_HOST').$endpoint);
+            // echo "I dgot here";exit;
+            $response = $client->get(env('API_HOST') . $endpoint);
             //dd($response);
             return json_decode($response->getBody(true)->getContents());
-
-
-
-        }catch (ClientException $exception) {
+        } catch (ClientException $exception) {
 
 
             $response = $exception->getResponse()->getBody(true)->getContents();
 
 
             $res = json_decode($response);
-            if(isset($res->message)){
-                if($res->message == "Unauthenticated."){
+            if (isset($res->message)) {
+                if ($res->message == "Unauthenticated.") {
 
                     Session::flush();
-                    return Redirect::to("/login")->with("message","You need to login to continue")->with("type","danger");
-
+                    return Redirect::to("/login")->with("message", "You need to login to continue")->with("type", "danger");
                 }
-
             }
 
 
-           // dd($res);
+            // dd($res);
 
             return $res;
-
         }
     }
 
@@ -132,7 +123,8 @@ class Messenger
 
 
 
-    public function random_num($size) {
+    public function random_num($size)
+    {
         $alpha_key = '';
         $keys = range('A', 'Z');
 
@@ -154,13 +146,14 @@ class Messenger
 
 
 
-    public function randomId($num,$column,$table){
+    public function randomId($num, $column, $table)
+    {
 
         $id = $this->random_num($num);
 
-        $validator = \Validator::make(["$column"=>$id],['id'=>"unique:$table,reference"]);
+        $validator = \Validator::make(["$column" => $id], ['id' => "unique:$table,reference"]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return $this->randomId($num);
         }
 
@@ -168,7 +161,7 @@ class Messenger
     }
 
 
-    public function validate($request,$array)
+    public function validate($request, $array)
     {
 
         $validator = Validator::make($request, $array);
@@ -186,12 +179,10 @@ class Messenger
                 'errors' => $validator->errors()->all(),
             ], 400);
             exit;
-
-
         }
     }
 
-    public function return_message($status,$type,$message,$code)
+    public function return_message($status, $type, $message, $code)
     {
         return response()->json([
             'status' => $status,
@@ -208,11 +199,11 @@ class Messenger
         //$bank = Banks::where("unique_id",Auth::user()->unique_id)->first();
 
 
-        $loan = Loan::where("unique_id",$loan_id)->first();
+        $loan = Loan::where("unique_id", $loan_id)->first();
 
 
         //check if the loan exist
-        if(count($loan) < 1){
+        if (count($loan) < 1) {
 
             return response()->json([
                 'status' => false,
@@ -223,7 +214,7 @@ class Messenger
         }
 
         //check if the loan has not already been disbursed
-        if($loan -> status == 3){
+        if ($loan->status == 3) {
 
             // loan has been disbursed
             return response()->json([
@@ -241,8 +232,8 @@ class Messenger
 
 
 
-        $loan -> status = 3;
-        $loan -> save();
+        $loan->status = 3;
+        $loan->save();
 
         return response()->json([
             'status' => false,
@@ -250,15 +241,5 @@ class Messenger
             'message' => 'Loan disbursal successful',
         ], 200);
         exit;
-
-
-
     }
-
-
-
-
-
-
-
 }

@@ -8,7 +8,7 @@
         <br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br>
         <div class="main-container" id="appRoute">
             <div class="section row">
-                @if(count($stations) > 0)
+                @if(count($stations->data) > 0)
                 @foreach($stations->data as $station)
                 <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
                     <div class="custom-card">
@@ -19,7 +19,10 @@
                 </div>
 
                 @endforeach
-
+                @else
+                <div class="col-xl-12 col-lg-12 col-sm-12 alert alert-warning">
+                    No station available, check back later!
+                </div>
                 @endif
             </div>
         </div>
