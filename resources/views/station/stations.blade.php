@@ -13,7 +13,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
                     <div class="custom-card">
                         <div class="custom-card--img">
-                            <a href="/watch/live/{{$station->id}}"><img src="{{$station->thumbnail}}" alt="" class="card-img--radius-lg"> <span class="bg-blur">{{$station->stationName}}</span></a>
+                            <a href="/livetv/stations/{{$station->id}}"><img src="{{$station->thumbnail}}" alt="" class="card-img--radius-lg"> <span class="bg-blur">{{$station->stationName}}</span></a>
                         </div>
                     </div>
                 </div>

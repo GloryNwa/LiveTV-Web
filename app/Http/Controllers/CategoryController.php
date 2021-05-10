@@ -125,7 +125,7 @@ class CategoryController extends Controller
     $token = Session::get('user');
     $curl = curl_init();
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "http://apis.livetvmobile.org/api/category/all?per_page=20&page=1",
+      CURLOPT_URL => 'http://apis.livetvmobile.org/api/category/all?per_page=20&page=1',
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,
@@ -143,7 +143,7 @@ class CategoryController extends Controller
     curl_close($curl);
     $category = json_decode($response);
 
-
+    //dd($category);exit;
 
 
     /////////////////////////////////////This Method Fetches all category videos  with their unique category_id//////////////////////////////////////////////////////    
@@ -158,7 +158,7 @@ class CategoryController extends Controller
       return view('category.catchupPlayer', ['category' => $category, 'response' => $response]);
     } else {
 
-      return view('category.catchupPlayer', ['category' => $category, 'response' => []]);
+      return view('category.catchupPlayer', ['category' => $category, 'response' =>  []]);
     }
   }
 }

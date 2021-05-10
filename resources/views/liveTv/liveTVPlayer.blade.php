@@ -57,7 +57,7 @@
         </div>
 
 
-        <div class="col-md-3">
+        <div class="col-md-3 d-none d-sm-block ">
             <div class="footer-content"><a class="email" style="font-weight: bold;">Download LiveTV App<br><br /></a>
 
                 <div class=""><a href="https://play.google.com/store/apps/details?id=com.celivetv.mobile2" class="btn btn-dark btn-air platform-btn" target="_blank"><i class="ion-logo-android"></i>
@@ -92,13 +92,17 @@
                 <div class="custom-card--img">
                     <div class="custom-card--info">
 
-                    </div><a href="{{route('liveTVPlayer',['video_id'=>$video->video_id,'cat_id'=>$video->category_id])}}" class="external"><img src="{{$video->banner}}" alt="{{$video->title}}" class="card-img--radius-lg"></a>
+                    </div><a href="{{route('liveTVPlayer',['video_id'=>$video->video_id,'cat_id'=>$video->category_id])}}" class="external"><img src="{{$video->banner}}" alt="{{$video->title}}" class=""></a>
                 </div><a href="{{route('liveTVPlayer',['video_id'=>$video->video_id,'cat_id'=>$video->category_id])}}" class="custom-card--link mt-2">
 
                     <p>{{$video->title}}</p>
                 </a>
             </div>
             @endforeach
+            @else
+            <div class="col-xl-12 col-lg-12 col-sm-12 alert alert-warning">
+                No video found in this category, kindly check back later!
+            </div>
             @endif
 
         </div>

@@ -40,11 +40,11 @@ Route::group(['middleware' => ['CheckAuth']], function () {
     //////////////////////////LiveTV////////////////////////////////////////////
 
     Route::get('/livetv/web', 'LiveTvController@liveTV')->name("liveTV");
-    Route::get('/livetv/web/{video_id}/{cat_id}', 'LiveTvController@liveTVPlayer')->name("liveTVPlayer");
+    Route::get('/catchup/video/{video_id}/{cat_id}', 'LiveTvController@liveTVPlayer')->name("liveTVPlayer");
     Route::post('/comment', 'LiveTvController@commentForm')->name("commentForm");
 
     Route::get('/stations/all', 'LiveTvController@stations')->name("stations");
-    Route::get('/watch/live/{id}', 'LiveTvController@view_live')->name("view_live");
+    Route::get('/livetv/stations/{id}', 'LiveTvController@view_live')->name("view_live");
 
     //////////////////////////Profile////////////////////////////////////////////
 
